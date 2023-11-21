@@ -3,7 +3,7 @@ variable REGION {
 }
 
 variable ZONE1 {
-  default = "us-east-2a"
+  default = "us-east-1a"
 }
 
 variable AMIS {
