@@ -1,7 +1,4 @@
-resource "aws_key_pair" "dove-key" {
-  key_name   = "dovekey"
-  public_key = file("dovekey.pub")
-}
+
 
 resource "aws_instance" "dove-inst" {
   ami                    = var.AMIS[var.REGION]
@@ -29,7 +26,7 @@ resource "aws_instance" "dove-inst" {
 
   connection {
     user        = var.USER
-    private_key = file("dovekey")
+    password = DevOps@321
     host        = self.public_ip
   }
 }
