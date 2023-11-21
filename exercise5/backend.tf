@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "terra-state-dove"
+    bucket = "tera-state-murthy"
     key    = "terraform/backend"
-    region = "us-east-2"
+    region = "us-east-1"
   }
 }
