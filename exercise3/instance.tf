@@ -26,7 +26,7 @@ resource "aws_instance" "dove-inst" {
 
   connection {
     user        = var.USER
-    password = DevOps@321
+    password = DevOps321
     host        = self.public_ip
   }
 }
