@@ -30,3 +30,11 @@ resource "aws_instance" "dove-inst" {
     host        = self.public_ip
   }
 }
+
+output "PublicIP" {
+  value = aws_instance.dove-inst.public_ip
+}
+output "privateIP" {
+  value = aws_instance.dove-inst.private_ip
+}
+ 
