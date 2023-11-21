@@ -1,14 +1,11 @@
-resource "aws_key_pair" "dove-key" {
-  key_name   = "dovekey"
-  public_key = file("dovekey.pub")
-}
+
 
 resource "aws_instance" "dove-inst" {
   ami                    = var.AMIS[var.REGION]
   instance_type          = "t2.micro"
   availability_zone      = var.ZONE1
-  key_name               = aws_key_pair.dove-key.key_name
-  vpc_security_group_ids = ["sg-0780815f55104be8a"]
+  #key_name               = aws_key_pair.dove-key.key_name
+  vpc_security_group_ids = ["sg-0e05adc3a9fdbddf0"]
   tags = {
     Name    = "Dove-Instance"
     Project = "Dove"
@@ -29,15 +26,7 @@ resource "aws_instance" "dove-inst" {
 
   connection {
     user        = var.USER
-    private_key = file("dovekey")
+    password = "DevOps321"
     host        = self.public_ip
   }
-}
-
-output "PublicIP" {
-  value = aws_instance.dove-inst.public_ip
-}
-
-output "PrivateIP" {
-  value = aws_instance.dove-inst.private_ip
 }
