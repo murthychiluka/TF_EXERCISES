@@ -15,5 +15,5 @@ variable AMIS {
 }
 
 variable USER {
-  default = "root"
+  default = "centos"
 }
